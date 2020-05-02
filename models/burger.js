@@ -8,13 +8,23 @@ var burger = {
 },
 
 insertOne: function(cols, vals, cb) {
-    orm.insertOne("burgers", cols, vals, function(res) {
+    orm.selectAll("burgers", cols, vals, function(res) {
         cb(res);
     })
 },
 
 updateOne: function(objColVals, condition, cb) {
-    orm.updateOne("burgers",
-    
-    )
+    orm.selectAll("burgers", objColVals, condition, function(res){
+        cb(res);
+    });
+},
+
+deleteOne: function(objColVals, condition, cb) {
+    orm.selectAll("burgers", condition, function(res){
+        cb(res);
+    });
 }
+
+};
+
+module.exports = burger;
