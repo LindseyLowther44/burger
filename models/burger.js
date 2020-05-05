@@ -1,14 +1,14 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-    selectAll: function(cb) {
+    selectAll: function (cb) {
     orm.selectAll("burgers", function(res) {
         cb(res);
     });
 },
 
-insertOne: function(cols, vals, cb) {
-    orm.selectAll("burgers", cols, vals, function(res) {
+insertOne: function (cols, vals, cb) {
+    orm.selectAll("burgers", cols, vals, function (res) {
         cb(res);
     })
 },
@@ -19,11 +19,11 @@ updateOne: function(objColVals, condition, cb) {
     });
 },
 
-deleteOne: function(objColVals, condition, cb) {
+deleteOne: function(condition, cb) {
     orm.selectAll("burgers", condition, function(res){
         cb(res);
-    });
-}
+        });
+    }
 
 };
 

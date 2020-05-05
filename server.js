@@ -6,6 +6,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 app.use(express.static("public"));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -14,6 +15,7 @@ app.set("view engine", "handlebars");
 
 var routes = require("./controllers/burger_controllers.js");
 app.use(routes);
+
 app.listen(PORT, function() {
     console.log("Server Listening on: http://localhost:" + PORT);
-})
+});

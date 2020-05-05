@@ -1,6 +1,6 @@
-var connection = require("../config/connection.js");
+var connection = require("../config/connection");
 
-function  createQmarks(num){
+function createQmarks(num){
     var arr = [];
     for(var i = 0; i < num; i++) {
         arr.push("?")
@@ -8,7 +8,7 @@ function  createQmarks(num){
     return arr.toString();
 }
 
-function translateSql(obj) {
+function translateSql(ob) {
     var arr = [];
     for (var key in ob) {
         var value = ob[key];
@@ -19,18 +19,17 @@ function translateSql(obj) {
             arr.push(key + "=" + value)
         }
     }
-    return arr.toString;
+    return arr.toString();
 }
 
 var orm = {
-    selectAll: function(table, cb) {
+    selectAll: function (table, cb) {
         var dbquery = "SELECT * FROM " + table + ";";
 
-        connection.query(dbquery, function(err, res) {
+        connection.query(dbquery, function (err, res) {
             if (err) {
                 throw err;
-            }
-            cb(res);
+            } cb(res);
         });
     },
     insertOne: function(table, cols, vals, cb) {
@@ -42,13 +41,13 @@ var orm = {
                 throw err;
             }
             cb(res);
-    });
+        });
     },
     updateOne: function(table, objColVals, condition, cb) {
         var dbquery = "UPDATE " + table + " SET " + translateSql(objColVals) + " WHERE " + condition;
         console.log(dbquery);
 
-        connection.query(dbquery, vals, function(err, res) {
+        connection.query(dbquery, function(err, res) {
             if (err) {
                 throw err;
             }
@@ -61,7 +60,7 @@ var orm = {
 
         console.log(dbquery);
 
-        connection.query(dbquery, vals, function(err, res) {
+        connection.query(dbquery, function(err, res) {
             if (err) {
                 throw err;
             }

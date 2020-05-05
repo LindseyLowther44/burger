@@ -1,0 +1,63 @@
+<div class="jumbotron">
+    <h1 class="display-4">Burger Time!</h1>
+    <p class="lead">Select a Burger to be added to the list to be cooked! Then when you eat it, DEVOUR it.</p>
+
+
+    <form class="create-form">
+        <div class="form-group">
+            <label for="newBurger">Choose Your Burger Here!</label>
+
+            <select data-placeholder="" id="newBurger" name="burger">
+                <option value="noSelection" selected>Burger Options!</option>
+                <option value="hamburger">Hamburger</option>
+                <option value="cheeseburger">Cheeseburger</option>
+                <option value="veggieburger">veggieburger</option>
+                <option value="txburger">Spicy Texas Burger</option>
+                <option value="beyondBurger">Beyond Burger</option>
+            </select>
+            <button type="submit" class="btn btn-success" id="addburger">
+                Submit!
+            </button>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="left"><strong>Order Up!</strong>
+                <p>Submit order when ready for pickup!</p>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                        <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                        <button type="button" class="eatBurger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-usd"></span></button>
+                    <hr>
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="rightside"><strong>Burger is ready!</strong>
+                <p>Remove order from pickup when devoured!</p>
+            </div>
+            <div class="panel-body">
+                <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <span><strong>{{this.id}} - {{this.burger_name}}</strong></span>
+                <button type="button" class="deleteBurger btn btn-danger" id="devouredBtn" data-id="{{this.id}}"
+                data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                <hr>
+                {{/if}}
+                {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
