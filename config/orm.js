@@ -29,11 +29,21 @@ var orm = {
         connection.query(dbquery, function (err, res) {
             if (err) {
                 throw err;
-            } cb(res);
+            } 
+            cb(res);
         });
     },
     insertOne: function(table, cols, vals, cb) {
-        var dbquery = "INSERT INTO " + table + " (" + cols.toString() + ") " + "VALUES (" + createQmarks(vals.length) + ") ";
+        var dbquery = 
+        "INSERT INTO " + 
+        table + " (" + 
+        cols.toString() +
+        ") " + 
+        "VALUES (" + 
+        createQmarks(vals.length) +
+        ") ";
+        
+        
         console.log(dbquery);
 
         connection.query(dbquery, vals, function(err, res) {
