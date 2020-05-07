@@ -1,7 +1,16 @@
+body{
+    font-family: 'Jost', sans-serif;
+}
+
 .jumbotron {
     text-align: center;
+    background-color: goldenrod;
 }
 
 .panel-heading {
     text-align: center;
+}
+
+ul {
+    text-align: center4;
 }

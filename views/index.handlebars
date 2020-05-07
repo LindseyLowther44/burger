@@ -1,4 +1,5 @@
 <div class="jumbotron">
+    <img src="/assets/img/kisspng-cheeseburger-hamburger-emoji-google-hamburger-5abb6c48ccbe32.0148095515222323928386.png" height="250px" width="auto">
     <h1 class="display-4">Burger Time!</h1>
     <p class="lead">Select a Burger to be added to the list to be cooked! Then when you eat it, DEVOUR it.</p>
 
@@ -35,7 +36,7 @@
                     {{#unless devoured}}
                         <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
                         <button type="button" class="eatBurger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
-                            data-newDevoured="{{devour}}"><span class="fa fa-usd"></span></button>
+                            data-newDevoured="{{devour}}"><span class="fa fa-check"></span></button>
                     <hr>
                     {{/unless}}
                     {{/each}}
